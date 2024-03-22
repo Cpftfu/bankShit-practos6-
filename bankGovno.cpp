@@ -20,7 +20,7 @@ public:
     {
         if (amount <= 0) 
         {
-            throw invalid_argument("Некорректная сумма внесения.");
+           cout << "Некорректная сумма внесения.";
         }
         balance += amount;
         cout << "Средства успешно внесены.\nОстаток на счете: " << balance << endl;
@@ -30,20 +30,22 @@ public:
     {
         if (amount <= 0) 
         {
-            throw invalid_argument("Некорректная сумма снятия.");
+            cout << "Некорректная сумма снятия.";
         }
         if (amount > balance) 
         {
-            throw invalid_argument("Недостаточно средств для снятия.");
+            cout << "Некорректная сумма снятия.";
         }
 
         if (balance - amount < 0) 
         {
-            throw invalid_argument("Упс! Баланс не может быть отрицательным.");
+             cout << "Упс! Баланс не может быть отрицательным.";
         }
-
-        balance -= amount;
-        cout << "Средства успешно сняты.\nОстаток на счете: " << balance << endl;
+        else
+        {
+             balance -= amount;
+             cout << "Средства успешно сняты.\nОстаток на счете: " << balance << endl;
+        }
     }
 
     double getBalance() 
